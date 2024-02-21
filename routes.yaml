@@ -1,0 +1,12 @@
+http:
+  routers:
+    LB:
+      service: lbweb
+      rule: "HOST(`badpyapple1.local`)"
+  services:
+    lbweb:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1:1001"
+          - url: "http://127.0.0.1:1002"
+          - url: "http://127.0.0.1:1003"
